@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>¡Hola Ari! 🦭✨</title>
+  <meta name="description" content="Animación ligera e interactiva de una foquita tierna para Ari.">
+  <meta name="theme-color" content="#ffeef2">
+  
+  <!-- Google Fonts: Fredoka & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Quicksand:wght@500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Top Controls (Sin el pill de foquita para Ari) -->
+    <header class="top-bar">
+      <div class="top-space"></div>
+      <div class="top-controls">
+        <button id="btn-theme" class="icon-btn" title="Cambiar tema" aria-label="Cambiar tema">🌌</button>
+        <button id="btn-music" class="icon-btn" title="Música" aria-label="Música">🔇</button>
+        <button id="btn-fullscreen" class="icon-btn" title="Pantalla completa" aria-label="Pantalla completa">📱</button>
+      </div>
+    </header>
+
+    <!-- Título principal: "¡HOLA ARI!" -->
+    <section class="hero-header">
+      <h1 class="greeting-title" id="greeting-title">
+        <span>¡HOLA ARI!</span>
+        <span class="sparkle-icon">✨</span>
+      </h1>
+      <p class="greeting-subtitle">
+        Una foquita tierna vino a desearte un lindo día <span class="heart-icon">💖</span>
+      </p>
+    </section>
+
+    <!-- Escenario Principal: Foquita en el Témpano de Hielo -->
+    <main class="stage-wrapper" id="stage-wrapper">
+      <div class="seal-floe-container" id="seal-assembly" title="¡Toca a la foquita!">
+        <!-- Burbuja de diálogo -->
+        <div class="speech-bubble" id="speech-bubble">
+          ¡Hola Ari! 💕
+        </div>
+
+        <!-- Personaje Foquita -->
+        <div class="seal-character" id="seal-character">
+          <img id="seal-image" class="seal-img" src="foca-recortada.png" alt="Foquita para Ari">
+          <!-- Sonrojo tierno en mejillas -->
+          <div class="blush-cheeks">
+            <span class="blush-dot"></span>
+            <span class="blush-dot"></span>
+          </div>
+        </div>
+
+        <!-- Témpano de hielo estilizado -->
+        <div class="ice-base">
+          <div class="ice-top"></div>
+        </div>
+      </div>
+
+      <!-- Olas suaves de agua -->
+      <div class="ocean-waves">
+        <div class="wave wave-back"></div>
+        <div class="wave wave-front"></div>
+      </div>
+    </main>
+
+    <!-- Botones de Acción Interactiva -->
+    <footer class="action-dock-container">
+      <div class="action-dock">
+        <button id="btn-feed" class="dock-btn" title="Darle un pescadito">
+          <span class="btn-icon">🐟</span>
+          <span class="btn-label">Dar pez</span>
+        </button>
+
+        <button id="btn-hearts" class="dock-btn highlight" title="Llenar de amor">
+          <span class="btn-icon">💖</span>
+          <span class="btn-label">Amor</span>
+        </button>
+
+        <button id="btn-flip" class="dock-btn" title="Hacer voltereta">
+          <span class="btn-icon">🔄</span>
+          <span class="btn-label">Voltereta</span>
+        </button>
+
+        <button id="btn-dance" class="dock-btn" title="Bailar con la foquita">
+          <span class="btn-icon">💃</span>
+          <span class="btn-label">Bailar</span>
+        </button>
+
+        <button id="btn-letter" class="dock-btn" title="Abrir mensajito">
+          <span class="btn-icon">💌</span>
+          <span class="btn-label">Mensaje</span>
+        </button>
+
+        <button id="btn-photo" class="dock-btn" title="Foto Polaroid">
+          <span class="btn-icon">📸</span>
+          <span class="btn-label">Polaroid</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- Contenedor para efectos ligeros CSS -->
+    <div id="fx-layer" class="fx-layer"></div>
+
+    <!-- Modal Mensaje para Ari -->
+    <div id="letter-modal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <button id="btn-close-letter" class="modal-close-btn" aria-label="Cerrar">✕</button>
+        <div class="modal-header">
+          <h3>Para Ari ✨</h3>
+          <p>Un mensajito especial con mucho cariño</p>
+        </div>
+        <div class="modal-body">
+          ¡Hola Ari! 🌸<br><br>
+          Esta pequeña foquita vino desde los mares más fríos solo para recordarte lo increíble, dulce y especial que eres.<br><br>
+          ¡Que tengas un día tan bonito y apapachable como esta foquita! 🦭🤍
+        </div>
+        <div class="modal-actions">
+          <button id="btn-letter-love" class="dock-btn highlight">
+            <span class="btn-icon">💖</span>
+            <span>¡Mucho amor!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Polaroid (Botón que solo dice "Guardar") -->
+    <div id="polaroid-modal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-card polaroid-card">
+        <button id="btn-close-polaroid" class="modal-close-btn" aria-label="Cerrar">✕</button>
+        
+        <div class="polaroid-frame">
+          <div class="polaroid-pic">
+            <img src="foca-recortada.png" alt="Foquita" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">¡Hola Ari! 🦭💕</div>
+        </div>
+
+        <button id="btn-download-photo" class="dock-btn highlight save-btn">
+          <span>Guardar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Ultra-Ligero -->
+  <script src="script.js"></script>
+</body>
+</html>
